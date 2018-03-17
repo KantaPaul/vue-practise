@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{ age * 2 >= 60 ? 'Old' : 'Young' }}</h2>
+        <h3>{{ name.split(' ')[0] }}</h3>
+        <h4>{{ fullName() }}</h4>
+        <h4>{{ fullNames(firstName, lastName).name }}</h4>
+        <h5>{{ fullNamess(firstName, lastName) }}</h5>
+
+        <h5>{{ myFullName }}</h5>
+        <button type="submit" v-on:click="changeNameSetter">Change name</button>
+        <div>
+            <p v-if="inStock > 10">{{ inStock }} Total Product</p>
+            <p v-else-if="inStock > 0"> Hurry up some kind of product here </p>
+            <p v-else> Too late </p>
+        </div>
+        <ul>
+            <li v-for="(n, index) in 10">
+                {{ n }} * {{ index }} = {{ n * index }}
+            </li>
+        </ul>
+        <input type="password" placeholder="password" v-model="password">
+
+        <p v-if="password.length > 8">Great long password</p>
+        <p v-else-if="password.length > 0">Password too sort</p>
+        <p v-else>Please enter a password</p>
+        <ol>
+            <li v-for="cate in cates">
+                {{ cate.name }}
+                <ul>
+                    <li v-for="sub in cate.sub">
+                        {{ sub }}
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+        <h5>Movie List</h5>
+        <ol>
+            <li v-for="movie in movieFunction">{{ movie }}</li>
+        </ol>
+        <button type="reset" v-on:click="addMovie">Add Movie</button>
+        <h1>{{ massage | uppercase(true) }}</h1>
+        <h1>{{ massage | capitalize }}</h1>
+    </div>
+
+    <script src="vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
